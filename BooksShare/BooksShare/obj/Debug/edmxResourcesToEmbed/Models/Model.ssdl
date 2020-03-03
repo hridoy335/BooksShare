@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bookshareModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Book_Category_Id" />
+    </Key>
+    <Property Name="Book_Category_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Category_Name" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="College">
+    <Key>
+      <PropertyRef Name="College_Id" />
+    </Key>
+    <Property Name="College_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="College_Name" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="Division_Id" />
+    </Key>
+    <Property Name="Division_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Division_Name" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Exchange_Information">
+    <Key>
+      <PropertyRef Name="Exchange_Id" />
+    </Key>
+    <Property Name="Exchange_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Post_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id_Buyer" Type="int" Nullable="false" />
+    <Property Name="User_Id_Seller" Type="int" Nullable="false" />
+    <Property Name="MakeDate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Post_Id" />
+    </Key>
+    <Property Name="Post_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id" Type="int" Nullable="false" />
+    <Property Name="Book_Name" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Writter_Name" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Catagory_Id" Type="int" Nullable="false" />
+    <Property Name="Book_Quantity" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Publish_Date" Type="date" Nullable="false" />
+    <Property Name="Exchange" Type="bit" Nullable="false" />
+    <Property Name="Parmanent_Exchange" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post_Comment">
+    <Key>
+      <PropertyRef Name="Post_Comment_Id" />
+    </Key>
+    <Property Name="Post_Comment_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Post_Id" Type="int" Nullable="false" />
+    <Property Name="User_Id_Buyer" Type="int" Nullable="false" />
+    <Property Name="User_Id_Seller" Type="int" Nullable="false" />
+    <Property Name="Makedate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Post_Image">
+    <Key>
+      <PropertyRef Name="PostImage_Id" />
+    </Key>
+    <Property Name="PostImage_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Post_Id" Type="int" Nullable="false" />
+    <Property Name="ImageLocation" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="Registration_Id" />
+    </Key>
+    <Property Name="Registration_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Registration_Email" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Registration_Contact" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="UserName" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Password" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="Makedate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="Review_Id" />
+    </Key>
+    <Property Name="Review_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id_Buyer" Type="int" Nullable="false" />
+    <Property Name="User_Id_Seller" Type="int" Nullable="false" />
+    <Property Name="Point" Type="int" Nullable="false" />
+    <Property Name="Comment" Type="char" MaxLength="500" Nullable="false" />
+    <Property Name="Makedate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="School_Id" />
+    </Key>
+    <Property Name="School_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="School_Name" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="University">
+    <Key>
+      <PropertyRef Name="University_Id" />
+    </Key>
+    <Property Name="University_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="University_Name" Type="varchar" MaxLength="500" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Block">
+    <Key>
+      <PropertyRef Name="Block_Id" />
+    </Key>
+    <Property Name="Block_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Id_Victim" Type="int" Nullable="false" />
+    <Property Name="User_Id_From" Type="int" Nullable="false" />
+    <Property Name="Block_Reasion" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Makedate" Type="date" Nullable="false" />
+  </EntityType>
+  <EntityType Name="User_Information">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Name" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="User_Contact" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="User_Status" Type="bit" Nullable="false" />
+    <Property Name="Division_Id" Type="int" Nullable="false" />
+    <Property Name="ZIla_Id" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="School_Id" Type="int" />
+    <Property Name="College_Id" Type="int" />
+    <Property Name="University_Id" Type="int" />
+    <Property Name="User_Image" Type="varchar" MaxLength="500" />
+    <Property Name="Registration_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Zila">
+    <Key>
+      <PropertyRef Name="Zila_Id" />
+    </Key>
+    <Property Name="Zila_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Zila_Name" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="Division_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Exchange_Information_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Exchange_Information" Type="Self.Exchange_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Post_Id" />
+      </Principal>
+      <Dependent Role="Exchange_Information">
+        <PropertyRef Name="Post_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exchange_Information_User_Information">
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="1" />
+    <End Role="Exchange_Information" Type="Self.Exchange_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Exchange_Information">
+        <PropertyRef Name="User_Id_Buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exchange_Information_User_Information1">
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="1" />
+    <End Role="Exchange_Information" Type="Self.Exchange_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Exchange_Information">
+        <PropertyRef Name="User_Id_Seller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Category">
+    <End Role="Category" Type="Self.Category" Multiplicity="1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Book_Category_Id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="Catagory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Comment_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Post_Comment" Type="Self.Post_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Post_Id" />
+      </Principal>
+      <Dependent Role="Post_Comment">
+        <PropertyRef Name="Post_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Comment_User_Information">
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="1" />
+    <End Role="Post_Comment" Type="Self.Post_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Post_Comment">
+        <PropertyRef Name="User_Id_Buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Comment_User_Information1">
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="1" />
+    <End Role="Post_Comment" Type="Self.Post_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Post_Comment">
+        <PropertyRef Name="User_Id_Seller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Image_Post">
+    <End Role="Post" Type="Self.Post" Multiplicity="1" />
+    <End Role="Post_Image" Type="Self.Post_Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Post_Id" />
+      </Principal>
+      <Dependent Role="Post_Image">
+        <PropertyRef Name="Post_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_User_Information">
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="1" />
+    <End Role="Post" Type="Self.Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Review_Review">
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="1" />
+    <End Role="Review" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="User_Id_Buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Review_User_Information">
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="1" />
+    <End Role="Review" Type="Self.Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="User_Id_Seller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Block_User_Information">
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="1" />
+    <End Role="User_Block" Type="Self.User_Block" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="User_Block">
+        <PropertyRef Name="User_Id_Victim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Block_User_Information1">
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="1" />
+    <End Role="User_Block" Type="Self.User_Block" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="User_Block">
+        <PropertyRef Name="User_Id_From" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_College">
+    <End Role="College" Type="Self.College" Multiplicity="0..1" />
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="College">
+        <PropertyRef Name="College_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="College_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_Division">
+    <End Role="Division" Type="Self.Division" Multiplicity="1" />
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="Division_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="Division_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_Registration">
+    <End Role="Registration" Type="Self.Registration" Multiplicity="1" />
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registration">
+        <PropertyRef Name="Registration_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="Registration_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_School">
+    <End Role="School" Type="Self.School" Multiplicity="0..1" />
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="School_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="School_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_University">
+    <End Role="University" Type="Self.University" Multiplicity="0..1" />
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="University_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="University_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_Zila">
+    <End Role="Zila" Type="Self.Zila" Multiplicity="1" />
+    <End Role="User_Information" Type="Self.User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zila">
+        <PropertyRef Name="Zila_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="ZIla_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="bookshareModelStoreContainer">
+    <EntitySet Name="Category" EntityType="Self.Category" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="College" EntityType="Self.College" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Division" EntityType="Self.Division" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Exchange_Information" EntityType="Self.Exchange_Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post" EntityType="Self.Post" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post_Comment" EntityType="Self.Post_Comment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Post_Image" EntityType="Self.Post_Image" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Registration" EntityType="Self.Registration" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Review" EntityType="Self.Review" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="School" EntityType="Self.School" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="University" EntityType="Self.University" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Block" EntityType="Self.User_Block" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User_Information" EntityType="Self.User_Information" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Zila" EntityType="Self.Zila" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Exchange_Information_Post" Association="Self.FK_Exchange_Information_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Exchange_Information" EntitySet="Exchange_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exchange_Information_User_Information" Association="Self.FK_Exchange_Information_User_Information">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Exchange_Information" EntitySet="Exchange_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exchange_Information_User_Information1" Association="Self.FK_Exchange_Information_User_Information1">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Exchange_Information" EntitySet="Exchange_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Category" Association="Self.FK_Post_Category">
+      <End Role="Category" EntitySet="Category" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Comment_Post" Association="Self.FK_Post_Comment_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Post_Comment" EntitySet="Post_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Comment_User_Information" Association="Self.FK_Post_Comment_User_Information">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Post_Comment" EntitySet="Post_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Comment_User_Information1" Association="Self.FK_Post_Comment_User_Information1">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Post_Comment" EntitySet="Post_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Image_Post" Association="Self.FK_Post_Image_Post">
+      <End Role="Post" EntitySet="Post" />
+      <End Role="Post_Image" EntitySet="Post_Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_User_Information" Association="Self.FK_Post_User_Information">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Post" EntitySet="Post" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Review_Review" Association="Self.FK_Review_Review">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Review_User_Information" Association="Self.FK_Review_User_Information">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Review" EntitySet="Review" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Block_User_Information" Association="Self.FK_User_Block_User_Information">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="User_Block" EntitySet="User_Block" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Block_User_Information1" Association="Self.FK_User_Block_User_Information1">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="User_Block" EntitySet="User_Block" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_College" Association="Self.FK_User_Information_College">
+      <End Role="College" EntitySet="College" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_Division" Association="Self.FK_User_Information_Division">
+      <End Role="Division" EntitySet="Division" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_Registration" Association="Self.FK_User_Information_Registration">
+      <End Role="Registration" EntitySet="Registration" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_School" Association="Self.FK_User_Information_School">
+      <End Role="School" EntitySet="School" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_University" Association="Self.FK_User_Information_University">
+      <End Role="University" EntitySet="University" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_Zila" Association="Self.FK_User_Information_Zila">
+      <End Role="Zila" EntitySet="Zila" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

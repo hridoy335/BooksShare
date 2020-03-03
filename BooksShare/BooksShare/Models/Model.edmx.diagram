@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="ab3b710ab08a41a1b6e78dc0a4a245e9" Name="Diagram1" ZoomLevel="55" >
+        <EntityTypeShape EntityType="bookshareModel.Category" Width="1.5" PointX="3" PointY="13.125" />
+        <EntityTypeShape EntityType="bookshareModel.College" Width="1.5" PointX="0.75" PointY="5.375" />
+        <EntityTypeShape EntityType="bookshareModel.Division" Width="1.5" PointX="0.75" PointY="8.125" />
+        <EntityTypeShape EntityType="bookshareModel.Exchange_Information" Width="1.5" PointX="7.5" PointY="8.625" />
+        <EntityTypeShape EntityType="bookshareModel.Post" Width="1.5" PointX="5.25" PointY="10" />
+        <EntityTypeShape EntityType="bookshareModel.Post_Comment" Width="1.5" PointX="10.5" PointY="8.625" />
+        <EntityTypeShape EntityType="bookshareModel.Post_Image" Width="1.5" PointX="7.5" PointY="14.375" />
+        <EntityTypeShape EntityType="bookshareModel.Registration" Width="1.5" PointX="0.75" PointY="15.625" />
+        <EntityTypeShape EntityType="bookshareModel.Review" Width="1.5" PointX="5.25" PointY="17.25" />
+        <EntityTypeShape EntityType="bookshareModel.School" Width="1.5" PointX="0.75" PointY="10.75" />
+        <EntityTypeShape EntityType="bookshareModel.University" Width="1.5" PointX="0.75" PointY="3" />
+        <EntityTypeShape EntityType="bookshareModel.User_Block" Width="1.5" PointX="5.25" PointY="6.125" />
+        <EntityTypeShape EntityType="bookshareModel.User_Information" Width="1.5" PointX="3" PointY="5.875" />
+        <EntityTypeShape EntityType="bookshareModel.Zila" Width="1.5" PointX="0.75" PointY="13" />
+        <AssociationConnector Association="bookshareModel.FK_Post_Category" />
+        <AssociationConnector Association="bookshareModel.FK_User_Information_College" />
+        <AssociationConnector Association="bookshareModel.FK_User_Information_Division" />
+        <AssociationConnector Association="bookshareModel.FK_Exchange_Information_Post" />
+        <AssociationConnector Association="bookshareModel.FK_Exchange_Information_User_Information" />
+        <AssociationConnector Association="bookshareModel.FK_Exchange_Information_User_Information1" />
+        <AssociationConnector Association="bookshareModel.FK_Post_Comment_Post" />
+        <AssociationConnector Association="bookshareModel.FK_Post_Image_Post" />
+        <AssociationConnector Association="bookshareModel.FK_Post_User_Information" />
+        <AssociationConnector Association="bookshareModel.FK_Post_Comment_User_Information" />
+        <AssociationConnector Association="bookshareModel.FK_Post_Comment_User_Information1" />
+        <AssociationConnector Association="bookshareModel.FK_User_Information_Registration" />
+        <AssociationConnector Association="bookshareModel.FK_Review_Review" />
+        <AssociationConnector Association="bookshareModel.FK_Review_User_Information" />
+        <AssociationConnector Association="bookshareModel.FK_User_Information_School" />
+        <AssociationConnector Association="bookshareModel.FK_User_Information_University" />
+        <AssociationConnector Association="bookshareModel.FK_User_Block_User_Information" />
+        <AssociationConnector Association="bookshareModel.FK_User_Block_User_Information1" />
+        <AssociationConnector Association="bookshareModel.FK_User_Information_Zila" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

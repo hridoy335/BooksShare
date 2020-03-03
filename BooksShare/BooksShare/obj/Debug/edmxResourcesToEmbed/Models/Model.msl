@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="bookshareModelStoreContainer" CdmEntityContainer="bookshareEntities">
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="bookshareModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="bookshareModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="bookshareModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="bookshareModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="bookshareModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="bookshareModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="bookshareModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="bookshareModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="bookshareModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="Categories">
+      <EntityTypeMapping TypeName="bookshareModel.Category">
+        <MappingFragment StoreEntitySet="Category">
+          <ScalarProperty Name="Category_Name" ColumnName="Category_Name" />
+          <ScalarProperty Name="Book_Category_Id" ColumnName="Book_Category_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Colleges">
+      <EntityTypeMapping TypeName="bookshareModel.College">
+        <MappingFragment StoreEntitySet="College">
+          <ScalarProperty Name="College_Name" ColumnName="College_Name" />
+          <ScalarProperty Name="College_Id" ColumnName="College_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Divisions">
+      <EntityTypeMapping TypeName="bookshareModel.Division">
+        <MappingFragment StoreEntitySet="Division">
+          <ScalarProperty Name="Division_Name" ColumnName="Division_Name" />
+          <ScalarProperty Name="Division_Id" ColumnName="Division_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Exchange_Information">
+      <EntityTypeMapping TypeName="bookshareModel.Exchange_Information">
+        <MappingFragment StoreEntitySet="Exchange_Information">
+          <ScalarProperty Name="MakeDate" ColumnName="MakeDate" />
+          <ScalarProperty Name="User_Id_Seller" ColumnName="User_Id_Seller" />
+          <ScalarProperty Name="User_Id_Buyer" ColumnName="User_Id_Buyer" />
+          <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+          <ScalarProperty Name="Exchange_Id" ColumnName="Exchange_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Posts">
+      <EntityTypeMapping TypeName="bookshareModel.Post">
+        <MappingFragment StoreEntitySet="Post">
+          <ScalarProperty Name="Parmanent_Exchange" ColumnName="Parmanent_Exchange" />
+          <ScalarProperty Name="Exchange" ColumnName="Exchange" />
+          <ScalarProperty Name="Publish_Date" ColumnName="Publish_Date" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Book_Quantity" ColumnName="Book_Quantity" />
+          <ScalarProperty Name="Catagory_Id" ColumnName="Catagory_Id" />
+          <ScalarProperty Name="Writter_Name" ColumnName="Writter_Name" />
+          <ScalarProperty Name="Book_Name" ColumnName="Book_Name" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+          <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post_Comment">
+      <EntityTypeMapping TypeName="bookshareModel.Post_Comment">
+        <MappingFragment StoreEntitySet="Post_Comment">
+          <ScalarProperty Name="Makedate" ColumnName="Makedate" />
+          <ScalarProperty Name="User_Id_Seller" ColumnName="User_Id_Seller" />
+          <ScalarProperty Name="User_Id_Buyer" ColumnName="User_Id_Buyer" />
+          <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+          <ScalarProperty Name="Post_Comment_Id" ColumnName="Post_Comment_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Post_Image">
+      <EntityTypeMapping TypeName="bookshareModel.Post_Image">
+        <MappingFragment StoreEntitySet="Post_Image">
+          <ScalarProperty Name="ImageLocation" ColumnName="ImageLocation" />
+          <ScalarProperty Name="Post_Id" ColumnName="Post_Id" />
+          <ScalarProperty Name="PostImage_Id" ColumnName="PostImage_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Registrations">
+      <EntityTypeMapping TypeName="bookshareModel.Registration">
+        <MappingFragment StoreEntitySet="Registration">
+          <ScalarProperty Name="Makedate" ColumnName="Makedate" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Registration_Contact" ColumnName="Registration_Contact" />
+          <ScalarProperty Name="Registration_Email" ColumnName="Registration_Email" />
+          <ScalarProperty Name="Registration_Id" ColumnName="Registration_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Reviews">
+      <EntityTypeMapping TypeName="bookshareModel.Review">
+        <MappingFragment StoreEntitySet="Review">
+          <ScalarProperty Name="Makedate" ColumnName="Makedate" />
+          <ScalarProperty Name="Comment" ColumnName="Comment" />
+          <ScalarProperty Name="Point" ColumnName="Point" />
+          <ScalarProperty Name="User_Id_Seller" ColumnName="User_Id_Seller" />
+          <ScalarProperty Name="User_Id_Buyer" ColumnName="User_Id_Buyer" />
+          <ScalarProperty Name="Review_Id" ColumnName="Review_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schools">
+      <EntityTypeMapping TypeName="bookshareModel.School">
+        <MappingFragment StoreEntitySet="School">
+          <ScalarProperty Name="School_Name" ColumnName="School_Name" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Universities">
+      <EntityTypeMapping TypeName="bookshareModel.University">
+        <MappingFragment StoreEntitySet="University">
+          <ScalarProperty Name="University_Name" ColumnName="University_Name" />
+          <ScalarProperty Name="University_Id" ColumnName="University_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Block">
+      <EntityTypeMapping TypeName="bookshareModel.User_Block">
+        <MappingFragment StoreEntitySet="User_Block">
+          <ScalarProperty Name="Makedate" ColumnName="Makedate" />
+          <ScalarProperty Name="Block_Reasion" ColumnName="Block_Reasion" />
+          <ScalarProperty Name="User_Id_From" ColumnName="User_Id_From" />
+          <ScalarProperty Name="User_Id_Victim" ColumnName="User_Id_Victim" />
+          <ScalarProperty Name="Block_Id" ColumnName="Block_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="User_Information">
+      <EntityTypeMapping TypeName="bookshareModel.User_Information">
+        <MappingFragment StoreEntitySet="User_Information">
+          <ScalarProperty Name="Registration_Id" ColumnName="Registration_Id" />
+          <ScalarProperty Name="User_Image" ColumnName="User_Image" />
+          <ScalarProperty Name="University_Id" ColumnName="University_Id" />
+          <ScalarProperty Name="College_Id" ColumnName="College_Id" />
+          <ScalarProperty Name="School_Id" ColumnName="School_Id" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="ZIla_Id" ColumnName="ZIla_Id" />
+          <ScalarProperty Name="Division_Id" ColumnName="Division_Id" />
+          <ScalarProperty Name="User_Status" ColumnName="User_Status" />
+          <ScalarProperty Name="User_Contact" ColumnName="User_Contact" />
+          <ScalarProperty Name="User_Name" ColumnName="User_Name" />
+          <ScalarProperty Name="User_Id" ColumnName="User_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Zilas">
+      <EntityTypeMapping TypeName="bookshareModel.Zila">
+        <MappingFragment StoreEntitySet="Zila">
+          <ScalarProperty Name="Division_Id" ColumnName="Division_Id" />
+          <ScalarProperty Name="Zila_Name" ColumnName="Zila_Name" />
+          <ScalarProperty Name="Zila_Id" ColumnName="Zila_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

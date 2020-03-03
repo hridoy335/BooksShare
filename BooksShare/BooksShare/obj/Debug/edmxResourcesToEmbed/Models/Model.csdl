@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="bookshareModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="bookshareEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(bookshareModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(bookshareModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Categories" EntityType="bookshareModel.Category" />
+    <EntitySet Name="Colleges" EntityType="bookshareModel.College" />
+    <EntitySet Name="Divisions" EntityType="bookshareModel.Division" />
+    <EntitySet Name="Exchange_Information" EntityType="bookshareModel.Exchange_Information" />
+    <EntitySet Name="Posts" EntityType="bookshareModel.Post" />
+    <EntitySet Name="Post_Comment" EntityType="bookshareModel.Post_Comment" />
+    <EntitySet Name="Post_Image" EntityType="bookshareModel.Post_Image" />
+    <EntitySet Name="Registrations" EntityType="bookshareModel.Registration" />
+    <EntitySet Name="Reviews" EntityType="bookshareModel.Review" />
+    <EntitySet Name="Schools" EntityType="bookshareModel.School" />
+    <EntitySet Name="Universities" EntityType="bookshareModel.University" />
+    <EntitySet Name="User_Block" EntityType="bookshareModel.User_Block" />
+    <EntitySet Name="User_Information" EntityType="bookshareModel.User_Information" />
+    <EntitySet Name="Zilas" EntityType="bookshareModel.Zila" />
+    <AssociationSet Name="FK_Post_Category" Association="bookshareModel.FK_Post_Category">
+      <End Role="Category" EntitySet="Categories" />
+      <End Role="Post" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_College" Association="bookshareModel.FK_User_Information_College">
+      <End Role="College" EntitySet="Colleges" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_Division" Association="bookshareModel.FK_User_Information_Division">
+      <End Role="Division" EntitySet="Divisions" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exchange_Information_Post" Association="bookshareModel.FK_Exchange_Information_Post">
+      <End Role="Post" EntitySet="Posts" />
+      <End Role="Exchange_Information" EntitySet="Exchange_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exchange_Information_User_Information" Association="bookshareModel.FK_Exchange_Information_User_Information">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Exchange_Information" EntitySet="Exchange_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Exchange_Information_User_Information1" Association="bookshareModel.FK_Exchange_Information_User_Information1">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Exchange_Information" EntitySet="Exchange_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Comment_Post" Association="bookshareModel.FK_Post_Comment_Post">
+      <End Role="Post" EntitySet="Posts" />
+      <End Role="Post_Comment" EntitySet="Post_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Image_Post" Association="bookshareModel.FK_Post_Image_Post">
+      <End Role="Post" EntitySet="Posts" />
+      <End Role="Post_Image" EntitySet="Post_Image" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_User_Information" Association="bookshareModel.FK_Post_User_Information">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Post" EntitySet="Posts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Comment_User_Information" Association="bookshareModel.FK_Post_Comment_User_Information">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Post_Comment" EntitySet="Post_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Post_Comment_User_Information1" Association="bookshareModel.FK_Post_Comment_User_Information1">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Post_Comment" EntitySet="Post_Comment" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_Registration" Association="bookshareModel.FK_User_Information_Registration">
+      <End Role="Registration" EntitySet="Registrations" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Review_Review" Association="bookshareModel.FK_Review_Review">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Review_User_Information" Association="bookshareModel.FK_Review_User_Information">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="Review" EntitySet="Reviews" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_School" Association="bookshareModel.FK_User_Information_School">
+      <End Role="School" EntitySet="Schools" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_University" Association="bookshareModel.FK_User_Information_University">
+      <End Role="University" EntitySet="Universities" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Block_User_Information" Association="bookshareModel.FK_User_Block_User_Information">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="User_Block" EntitySet="User_Block" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Block_User_Information1" Association="bookshareModel.FK_User_Block_User_Information1">
+      <End Role="User_Information" EntitySet="User_Information" />
+      <End Role="User_Block" EntitySet="User_Block" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_Information_Zila" Association="bookshareModel.FK_User_Information_Zila">
+      <End Role="Zila" EntitySet="Zilas" />
+      <End Role="User_Information" EntitySet="User_Information" />
+    </AssociationSet>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Category">
+    <Key>
+      <PropertyRef Name="Book_Category_Id" />
+    </Key>
+    <Property Name="Book_Category_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Category_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Posts" Relationship="bookshareModel.FK_Post_Category" FromRole="Category" ToRole="Post" />
+  </EntityType>
+  <EntityType Name="College">
+    <Key>
+      <PropertyRef Name="College_Id" />
+    </Key>
+    <Property Name="College_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="College_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_User_Information_College" FromRole="College" ToRole="User_Information" />
+  </EntityType>
+  <EntityType Name="Division">
+    <Key>
+      <PropertyRef Name="Division_Id" />
+    </Key>
+    <Property Name="Division_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Division_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_User_Information_Division" FromRole="Division" ToRole="User_Information" />
+  </EntityType>
+  <EntityType Name="Exchange_Information">
+    <Key>
+      <PropertyRef Name="Exchange_Id" />
+    </Key>
+    <Property Name="Exchange_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Post_Id" Type="Int32" Nullable="false" />
+    <Property Name="User_Id_Buyer" Type="Int32" Nullable="false" />
+    <Property Name="User_Id_Seller" Type="Int32" Nullable="false" />
+    <Property Name="MakeDate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Post" Relationship="bookshareModel.FK_Exchange_Information_Post" FromRole="Exchange_Information" ToRole="Post" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_Exchange_Information_User_Information" FromRole="Exchange_Information" ToRole="User_Information" />
+    <NavigationProperty Name="User_Information1" Relationship="bookshareModel.FK_Exchange_Information_User_Information1" FromRole="Exchange_Information" ToRole="User_Information" />
+  </EntityType>
+  <EntityType Name="Post">
+    <Key>
+      <PropertyRef Name="Post_Id" />
+    </Key>
+    <Property Name="Post_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id" Type="Int32" Nullable="false" />
+    <Property Name="Book_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Writter_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Catagory_Id" Type="Int32" Nullable="false" />
+    <Property Name="Book_Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Publish_Date" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Exchange" Type="Boolean" Nullable="false" />
+    <Property Name="Parmanent_Exchange" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Category" Relationship="bookshareModel.FK_Post_Category" FromRole="Post" ToRole="Category" />
+    <NavigationProperty Name="Exchange_Information" Relationship="bookshareModel.FK_Exchange_Information_Post" FromRole="Post" ToRole="Exchange_Information" />
+    <NavigationProperty Name="Post_Comment" Relationship="bookshareModel.FK_Post_Comment_Post" FromRole="Post" ToRole="Post_Comment" />
+    <NavigationProperty Name="Post_Image" Relationship="bookshareModel.FK_Post_Image_Post" FromRole="Post" ToRole="Post_Image" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_Post_User_Information" FromRole="Post" ToRole="User_Information" />
+  </EntityType>
+  <EntityType Name="Post_Comment">
+    <Key>
+      <PropertyRef Name="Post_Comment_Id" />
+    </Key>
+    <Property Name="Post_Comment_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Post_Id" Type="Int32" Nullable="false" />
+    <Property Name="User_Id_Buyer" Type="Int32" Nullable="false" />
+    <Property Name="User_Id_Seller" Type="Int32" Nullable="false" />
+    <Property Name="Makedate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="Post" Relationship="bookshareModel.FK_Post_Comment_Post" FromRole="Post_Comment" ToRole="Post" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_Post_Comment_User_Information" FromRole="Post_Comment" ToRole="User_Information" />
+    <NavigationProperty Name="User_Information1" Relationship="bookshareModel.FK_Post_Comment_User_Information1" FromRole="Post_Comment" ToRole="User_Information" />
+  </EntityType>
+  <EntityType Name="Post_Image">
+    <Key>
+      <PropertyRef Name="PostImage_Id" />
+    </Key>
+    <Property Name="PostImage_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Post_Id" Type="Int32" Nullable="false" />
+    <Property Name="ImageLocation" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Post" Relationship="bookshareModel.FK_Post_Image_Post" FromRole="Post_Image" ToRole="Post" />
+  </EntityType>
+  <EntityType Name="Registration">
+    <Key>
+      <PropertyRef Name="Registration_Id" />
+    </Key>
+    <Property Name="Registration_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Registration_Email" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Registration_Contact" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Makedate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_User_Information_Registration" FromRole="Registration" ToRole="User_Information" />
+  </EntityType>
+  <EntityType Name="Review">
+    <Key>
+      <PropertyRef Name="Review_Id" />
+    </Key>
+    <Property Name="Review_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id_Buyer" Type="Int32" Nullable="false" />
+    <Property Name="User_Id_Seller" Type="Int32" Nullable="false" />
+    <Property Name="Point" Type="Int32" Nullable="false" />
+    <Property Name="Comment" Type="String" Nullable="false" MaxLength="500" FixedLength="true" Unicode="false" />
+    <Property Name="Makedate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_Review_Review" FromRole="Review" ToRole="User_Information" />
+    <NavigationProperty Name="User_Information1" Relationship="bookshareModel.FK_Review_User_Information" FromRole="Review" ToRole="User_Information" />
+  </EntityType>
+  <EntityType Name="School">
+    <Key>
+      <PropertyRef Name="School_Id" />
+    </Key>
+    <Property Name="School_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="School_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_User_Information_School" FromRole="School" ToRole="User_Information" />
+  </EntityType>
+  <EntityType Name="University">
+    <Key>
+      <PropertyRef Name="University_Id" />
+    </Key>
+    <Property Name="University_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="University_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_User_Information_University" FromRole="University" ToRole="User_Information" />
+  </EntityType>
+  <EntityType Name="User_Block">
+    <Key>
+      <PropertyRef Name="Block_Id" />
+    </Key>
+    <Property Name="Block_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Id_Victim" Type="Int32" Nullable="false" />
+    <Property Name="User_Id_From" Type="Int32" Nullable="false" />
+    <Property Name="Block_Reasion" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Makedate" Type="DateTime" Nullable="false" Precision="0" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_User_Block_User_Information" FromRole="User_Block" ToRole="User_Information" />
+    <NavigationProperty Name="User_Information1" Relationship="bookshareModel.FK_User_Block_User_Information1" FromRole="User_Block" ToRole="User_Information" />
+  </EntityType>
+  <EntityType Name="User_Information">
+    <Key>
+      <PropertyRef Name="User_Id" />
+    </Key>
+    <Property Name="User_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="User_Contact" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="User_Status" Type="Boolean" Nullable="false" />
+    <Property Name="Division_Id" Type="Int32" Nullable="false" />
+    <Property Name="ZIla_Id" Type="Int32" Nullable="false" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="School_Id" Type="Int32" />
+    <Property Name="College_Id" Type="Int32" />
+    <Property Name="University_Id" Type="Int32" />
+    <Property Name="User_Image" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Registration_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="College" Relationship="bookshareModel.FK_User_Information_College" FromRole="User_Information" ToRole="College" />
+    <NavigationProperty Name="Division" Relationship="bookshareModel.FK_User_Information_Division" FromRole="User_Information" ToRole="Division" />
+    <NavigationProperty Name="Exchange_Information" Relationship="bookshareModel.FK_Exchange_Information_User_Information" FromRole="User_Information" ToRole="Exchange_Information" />
+    <NavigationProperty Name="Exchange_Information1" Relationship="bookshareModel.FK_Exchange_Information_User_Information1" FromRole="User_Information" ToRole="Exchange_Information" />
+    <NavigationProperty Name="Posts" Relationship="bookshareModel.FK_Post_User_Information" FromRole="User_Information" ToRole="Post" />
+    <NavigationProperty Name="Post_Comment" Relationship="bookshareModel.FK_Post_Comment_User_Information" FromRole="User_Information" ToRole="Post_Comment" />
+    <NavigationProperty Name="Post_Comment1" Relationship="bookshareModel.FK_Post_Comment_User_Information1" FromRole="User_Information" ToRole="Post_Comment" />
+    <NavigationProperty Name="Registration" Relationship="bookshareModel.FK_User_Information_Registration" FromRole="User_Information" ToRole="Registration" />
+    <NavigationProperty Name="Reviews" Relationship="bookshareModel.FK_Review_Review" FromRole="User_Information" ToRole="Review" />
+    <NavigationProperty Name="Reviews1" Relationship="bookshareModel.FK_Review_User_Information" FromRole="User_Information" ToRole="Review" />
+    <NavigationProperty Name="School" Relationship="bookshareModel.FK_User_Information_School" FromRole="User_Information" ToRole="School" />
+    <NavigationProperty Name="University" Relationship="bookshareModel.FK_User_Information_University" FromRole="User_Information" ToRole="University" />
+    <NavigationProperty Name="User_Block" Relationship="bookshareModel.FK_User_Block_User_Information" FromRole="User_Information" ToRole="User_Block" />
+    <NavigationProperty Name="User_Block1" Relationship="bookshareModel.FK_User_Block_User_Information1" FromRole="User_Information" ToRole="User_Block" />
+    <NavigationProperty Name="Zila" Relationship="bookshareModel.FK_User_Information_Zila" FromRole="User_Information" ToRole="Zila" />
+  </EntityType>
+  <EntityType Name="Zila">
+    <Key>
+      <PropertyRef Name="Zila_Id" />
+    </Key>
+    <Property Name="Zila_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Zila_Name" Type="String" Nullable="false" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Division_Id" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="User_Information" Relationship="bookshareModel.FK_User_Information_Zila" FromRole="Zila" ToRole="User_Information" />
+  </EntityType>
+  <Association Name="FK_Post_Category">
+    <End Type="bookshareModel.Category" Role="Category" Multiplicity="1" />
+    <End Type="bookshareModel.Post" Role="Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Category">
+        <PropertyRef Name="Book_Category_Id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="Catagory_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_College">
+    <End Type="bookshareModel.College" Role="College" Multiplicity="0..1" />
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="College">
+        <PropertyRef Name="College_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="College_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_Division">
+    <End Type="bookshareModel.Division" Role="Division" Multiplicity="1" />
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Division">
+        <PropertyRef Name="Division_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="Division_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exchange_Information_Post">
+    <End Type="bookshareModel.Post" Role="Post" Multiplicity="1" />
+    <End Type="bookshareModel.Exchange_Information" Role="Exchange_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Post_Id" />
+      </Principal>
+      <Dependent Role="Exchange_Information">
+        <PropertyRef Name="Post_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exchange_Information_User_Information">
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="1" />
+    <End Type="bookshareModel.Exchange_Information" Role="Exchange_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Exchange_Information">
+        <PropertyRef Name="User_Id_Buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Exchange_Information_User_Information1">
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="1" />
+    <End Type="bookshareModel.Exchange_Information" Role="Exchange_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Exchange_Information">
+        <PropertyRef Name="User_Id_Seller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Comment_Post">
+    <End Type="bookshareModel.Post" Role="Post" Multiplicity="1" />
+    <End Type="bookshareModel.Post_Comment" Role="Post_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Post_Id" />
+      </Principal>
+      <Dependent Role="Post_Comment">
+        <PropertyRef Name="Post_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Image_Post">
+    <End Type="bookshareModel.Post" Role="Post" Multiplicity="1" />
+    <End Type="bookshareModel.Post_Image" Role="Post_Image" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Post">
+        <PropertyRef Name="Post_Id" />
+      </Principal>
+      <Dependent Role="Post_Image">
+        <PropertyRef Name="Post_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_User_Information">
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="1" />
+    <End Type="bookshareModel.Post" Role="Post" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Post">
+        <PropertyRef Name="User_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Comment_User_Information">
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="1" />
+    <End Type="bookshareModel.Post_Comment" Role="Post_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Post_Comment">
+        <PropertyRef Name="User_Id_Buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Post_Comment_User_Information1">
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="1" />
+    <End Type="bookshareModel.Post_Comment" Role="Post_Comment" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Post_Comment">
+        <PropertyRef Name="User_Id_Seller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_Registration">
+    <End Type="bookshareModel.Registration" Role="Registration" Multiplicity="1" />
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Registration">
+        <PropertyRef Name="Registration_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="Registration_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Review_Review">
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="1" />
+    <End Type="bookshareModel.Review" Role="Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="User_Id_Buyer" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Review_User_Information">
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="1" />
+    <End Type="bookshareModel.Review" Role="Review" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="Review">
+        <PropertyRef Name="User_Id_Seller" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_School">
+    <End Type="bookshareModel.School" Role="School" Multiplicity="0..1" />
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="School">
+        <PropertyRef Name="School_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="School_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_University">
+    <End Type="bookshareModel.University" Role="University" Multiplicity="0..1" />
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="University">
+        <PropertyRef Name="University_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="University_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Block_User_Information">
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="1" />
+    <End Type="bookshareModel.User_Block" Role="User_Block" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="User_Block">
+        <PropertyRef Name="User_Id_Victim" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Block_User_Information1">
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="1" />
+    <End Type="bookshareModel.User_Block" Role="User_Block" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User_Information">
+        <PropertyRef Name="User_Id" />
+      </Principal>
+      <Dependent Role="User_Block">
+        <PropertyRef Name="User_Id_From" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_Information_Zila">
+    <End Type="bookshareModel.Zila" Role="Zila" Multiplicity="1" />
+    <End Type="bookshareModel.User_Information" Role="User_Information" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Zila">
+        <PropertyRef Name="Zila_Id" />
+      </Principal>
+      <Dependent Role="User_Information">
+        <PropertyRef Name="ZIla_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
